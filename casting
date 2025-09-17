@@ -1,0 +1,81 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "1c41a8ca-c139-4af5-9618-34e117d36aec",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "After Casting:\n",
+      "{'id': 101, 'name': 'Vimla', 'age': 21, 'marks': 85.5}\n",
+      "{'id': 102, 'name': 'Deora', 'age': 22, 'marks': 90.0}\n",
+      "{'id': 103, 'name': 'Rahul', 'age': 20, 'marks': 78.2}\n",
+      "{'id': 104, 'name': 'Priya', 'age': 21, 'marks': 88.7}\n",
+      "\n",
+      "Average Marks: 85.6\n",
+      "Topper: Deora with 90.0 marks\n"
+     ]
+    }
+   ],
+   "source": [
+    "students_data = [\n",
+    "    [\"101\", \"Vimla\", \"21\", \"85.5\"],\n",
+    "    [\"102\", \"Deora\", \"22\", \"90.0\"],\n",
+    "    [\"103\", \"Rahul\", \"20\", \"78.2\"],\n",
+    "    [\"104\", \"Priya\", \"21\", \"88.7\"]\n",
+    "]\n",
+    "\n",
+    "\n",
+    "students = []\n",
+    "for s in students_data:\n",
+    "    student = {\n",
+    "        \"id\": int(s[0]),            # string → int\n",
+    "        \"name\": s[1],               # keep as string\n",
+    "        \"age\": int(s[2]),           # string → int\n",
+    "        \"marks\": float(s[3])        # string → float\n",
+    "    }\n",
+    "    students.append(student)\n",
+    "\n",
+    "\n",
+    "print(\"After Casting:\")\n",
+    "for s in students:\n",
+    "    print(s)\n",
+    "\n",
+    "\n",
+    "total_marks = sum(s[\"marks\"] for s in students)\n",
+    "avg_marks = total_marks / len(students)\n",
+    "print(\"\\nAverage Marks:\", avg_marks)\n",
+    "\n",
+    "\n",
+    "topper = max(students, key=lambda x: x[\"marks\"])\n",
+    "print(\"Topper:\", topper[\"name\"], \"with\", topper[\"marks\"], \"marks\")\n",
+    "\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.3"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
